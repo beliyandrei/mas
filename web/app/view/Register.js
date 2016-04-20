@@ -24,6 +24,9 @@ Ext.define('Traccar.view.Register', {
     controller: 'register',
 
     title: Strings.loginRegister,
+    cls: 'login-window',
+    header: {cls: 'login-header'},
+
 
     items: {
         xtype: 'form',
@@ -50,11 +53,25 @@ Ext.define('Traccar.view.Register', {
         }]
     },
 
-    buttons: [{
-        text: Strings.sharedSave,
-        handler: 'onCreateClick'
-    }, {
-        text: Strings.sharedCancel,
-        handler: 'closeView'
+     dockedItems: [{
+        xtype: 'toolbar',
+        dock: 'bottom',
+        ui: 'footer',
+        cls:'login-dock',
+         items: [{ xtype: 'component', flex: 1 },
+
+            {
+            xtype:'button',
+            text: Strings.sharedSave,
+            cls:'login-button',
+            handler: 'onCreateClick',
+            reference: 'registerButton'
+        },
+        {
+            xtype:'button',
+            text: Strings.sharedCancel,
+            handler: 'closeView',
+            handler: 'closeView' 
+        }]
     }]
 });

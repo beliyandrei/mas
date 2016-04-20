@@ -27,11 +27,19 @@ Ext.define('Traccar.view.Login', {
     title: Strings.loginTitle,
     closable: false,
     modal: false,
+    cls: 'login-window',
+    header: {cls: 'login-header'},
+    x:529,
+    y:304,
+         
+
 
     items: {
         xtype: 'form',
         reference: 'form',
 
+
+ 
         autoEl: {
             tag: 'form',
             method: 'POST',
@@ -47,9 +55,6 @@ Ext.define('Traccar.view.Login', {
             displayField: 'name',
             valueField: 'code',
             submitValue: false,
-            listeners: {
-                select: 'onSelectLanguage'
-            },
             reference: 'languageField'
         }, {
             xtype: 'textfield',
@@ -82,12 +87,26 @@ Ext.define('Traccar.view.Login', {
         }]
     },
 
-    buttons: [{
-        text: Strings.loginRegister,
-        handler: 'onRegisterClick',
-        reference: 'registerButton'
-    }, {
-        text: Strings.loginLogin,
-        handler: 'onLoginClick'
+    dockedItems: [{
+        xtype: 'toolbar',
+        dock: 'bottom',
+        ui: 'footer',
+        cls:'login-dock',
+         items: [{ xtype: 'component', flex: 1 },
+
+            {
+            xtype:'button',
+            text: Strings.loginRegister,
+            cls:'login-button',
+            handler: 'onRegisterClick',
+            reference: 'registerButton'
+        },
+        {
+            xtype:'button',
+            text: Strings.loginLogin,
+            cls:'login-button',
+            handler: 'onLoginClick' 
+        }]
     }]
+
 });

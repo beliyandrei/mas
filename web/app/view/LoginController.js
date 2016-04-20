@@ -17,15 +17,17 @@
 Ext.define('Traccar.view.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
-
+    languageSelected: false,
     requires: [
         'Traccar.view.Register'
     ],
 
     init: function () {
+        Locale.language = 'es';
         this.lookupReference('registerButton').setDisabled(
             !Traccar.app.getServer().get('registration'));
-        this.lookupReference('languageField').setValue(Locale.language);
+        this.lookupReference('languageField').setValue('Español');
+        
     },
 
     login: function () {
@@ -61,26 +63,6 @@ Ext.define('Traccar.view.LoginController', {
         });
     },
 
-    onSelectLanguage: function (selected) {
-        var paramName, paramValue, url, prefix, suffix;
-        paramName = 'locale';
-        paramValue = selected.getValue();
-        url = window.location.href;
-        if (url.indexOf(paramName + '=') >= 0) {
-            prefix = url.substring(0, url.indexOf(paramName));
-            suffix = url.substring(url.indexOf(paramName));
-            suffix = suffix.substring(suffix.indexOf('=') + 1);
-            suffix = (suffix.indexOf('&') >= 0) ? suffix.substring(suffix.indexOf('&')) : '';
-            url = prefix + paramName + '=' + paramValue + suffix;
-        } else {
-            if (url.indexOf('?') < 0) {
-                url += '?' + paramName + '=' + paramValue;
-            } else {
-                url += '&' + paramName + '=' + paramValue;
-            }
-        }
-        window.location.href = url;
-    },
 
     onAfterRender: function (field) {
         field.focus();

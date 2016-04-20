@@ -22,8 +22,11 @@ Ext.define('Traccar.view.Main', {
         'Traccar.view.Devices',
         'Traccar.view.State',
         'Traccar.view.Report',
-        'Traccar.view.Map'
+        'Traccar.view.Map',
+        'Traccar.view.MainController'
     ],
+
+     controller: 'main',
 
     layout: 'border',
 
@@ -34,10 +37,12 @@ Ext.define('Traccar.view.Main', {
     },
 
     items: [{
-        region: 'west',
+        region: 'east',
         layout: 'border',
         width: Traccar.Style.deviceWidth,
         title: Strings.devicesAndState,
+        collapsed:true,
+        collapseMode:'mini',
 
         defaults: {
             split: true,
@@ -46,22 +51,29 @@ Ext.define('Traccar.view.Main', {
 
         items: [{
             region: 'center',
-            xtype: 'devicesView'
+            xtype: 'devicesView',
+            width: Traccar.Style.deviceWidth
+
         }, {
             region: 'south',
-            xtype: 'stateView'
+            xtype: 'stateView',
+             width: Traccar.Style.deviceWidth
         }]
     }, {
         region: 'south',
         xtype: 'reportView',
         height: Traccar.Style.reportHeight,
-        collapsed: true,
-        titleCollapse: true,
-        floatable: false
+        collapsed:true,
+        collapseMode:'mini',
+        resizable:true,
+         listeners: {
+              collapse: 'onCollapseReports',
+              expand:  'onExpandReports'
+      }
     }, {
         region: 'center',
-        xtype: 'mapView',
-        header: true,
-        collapsible: false
+        xtype: 'mapView'
+        /*header: false,
+        collapsible: false*/
     }]
 });

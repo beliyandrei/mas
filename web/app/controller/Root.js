@@ -25,7 +25,11 @@ Ext.define('Traccar.controller.Root', {
 
     init: function () {
         var indicator = document.createElement('div');
+        var logo = document.createElement('img');
+        logo.src = 'resources/mas.png';
+        logo.className = "logo";
         indicator.className = 'state-indicator';
+         document.body.appendChild(logo);
         document.body.appendChild(indicator);
         this.isPhone = parseInt(window.getComputedStyle(indicator).getPropertyValue('z-index'), 10) !== 0;
     },

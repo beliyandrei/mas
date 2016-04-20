@@ -13,6 +13,7 @@
     "sharedHour": "Hora",
     "sharedMinute": "Minuto",
     "sharedSecond": "Segundo",
+    "sharedName": "Nombre",
     "errorTitle": "Error",
     "errorUnknown": "Error Desconocido",
     "errorConnection": "Error de Conexión",

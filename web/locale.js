@@ -55,15 +55,9 @@ Locale.languages = {
     'zh': { name: '中文', code: 'zh_CN' }
 };
 
-Locale.language = Ext.Object.fromQueryString(window.location.search.substring(1)).locale;
-if (Locale.language === undefined) {
-    Locale.language = window.navigator.userLanguage || window.navigator.language;
-    Locale.language = Locale.language.substr(0, 2);
-}
+Locale.language = 'es';
 
-if (!(Locale.language in Locale.languages)) {
-    Locale.language = 'en'; // default
-}
+
 
 Ext.Ajax.request({
     url: '/l10n/' + Locale.language + '.json',

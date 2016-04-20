@@ -18,6 +18,11 @@ Ext.define('Traccar.view.EditToolbar', {
     extend: 'Ext.toolbar.Toolbar',
     xtype: 'editToolbar',
 
+    collapsed:true,
+    titleCollapse: true,
+    floatable: false,
+    animCollapse: false,
+
     initComponent: function () {
         this.callParent(arguments);
         this.add(0, [{

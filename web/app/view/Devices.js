@@ -25,7 +25,7 @@ Ext.define('Traccar.view.Devices', {
     ],
 
     controller: 'devices',
-    rootVisible: false,
+    
 
     initComponent: function() {
         this.store = Ext.create('Ext.data.ChainedStore', {

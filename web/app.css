@@ -32,6 +32,50 @@
     font-size: x-small;
 }
 
+.logo{
+display:block;
+margin-left: auto;
+margin-right:auto;
+}
+
+.logo-map{
+height:50px;
+width:50px;
+}
+
+.login-window{
+   border-color: #0c92c4;
+}
+
+.login-header{
+   background-color: #0c92c4;
+   border-color: #0c92c4;
+}
+
+.login-button{
+    background-color: #0c92c4;
+
+}
+
+.login-dock{
+background-color: white;
+
+}
+
+.logo-container-collapsed{
+background-color: #0c92c4;
+z-index: 1000px;
+position:absolute;
+top:85%;
+}
+
+.logo-container-expanded{
+background-color: #0c92c4;
+z-index: 1000px;
+position:absolute;
+top:40%;
+}
+
 #spinner {
     position: absolute;
     top: 50%;

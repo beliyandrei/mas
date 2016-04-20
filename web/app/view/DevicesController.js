@@ -48,6 +48,7 @@ Ext.define('Traccar.view.DevicesController', {
         dialog = Ext.create('Traccar.view.DeviceDialog');
         dialog.down('form').loadRecord(device);
         dialog.show();
+        dialog.collapse();
     },
 
     onEditClick: function () {

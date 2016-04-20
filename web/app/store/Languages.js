@@ -19,15 +19,7 @@ Ext.define('Traccar.store.Languages', {
     fields: ['code', 'name'],
 
     data: (function () {
-        var code, data = [];
-        for (code in Locale.languages) {
-            if (Locale.languages.hasOwnProperty(code)) {
-                data.push({
-                    code: code,
-                    name: Locale.languages[code].name
-                });
-            }
-        }
+        var data = [{'code':'es', 'name':'Español'}];
         return data;
     })()
 });
